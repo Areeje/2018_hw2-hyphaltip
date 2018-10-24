@@ -8,8 +8,13 @@ aa_fourfold = 0
 with open(codon_file,"r") as fh:
     for line in fh:
         line = line.strip() #  remove trailing \n
-        AA = "" # you should write code to get this from the string line
-        codon_ct = 0 # you should write code to get this from the string line
+        cols = line.split("\t")
+        AA = cols[1] # you should write code to get this from the string line
+        codon_ct = len(cols[0].split(",")) # you should write code to get this from the string line
+        aa_count += 1
+        codon_count += codon_ct
+        if codon_ct > 3:
+            aa_fourfold += 1
         print("Amino acid {} is coded for by {} codons".format(AA,codon_ct))
 
 print("===")
