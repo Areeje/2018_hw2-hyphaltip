@@ -5,6 +5,8 @@ codon_file = 'codon_table_compact.txt'
 codon_count = 0
 aa_count    = 0
 aa_fourfold = 0
+fourfold_aa_names = []
+
 with open(codon_file,"r") as fh:
     for line in fh:
         line = line.strip() #  remove trailing \n
@@ -15,9 +17,11 @@ with open(codon_file,"r") as fh:
         codon_count += codon_ct
         if codon_ct > 3:
             aa_fourfold += 1
+            fourfold_aa_names.append(AA)
         print("Amino acid {} is coded for by {} codons".format(AA,codon_ct))
 
 print("===")
 print("There are {} total amino acids and {} codons".format(aa_count,codon_count))
 print("There are {} AAs which are four-fold or six-fold degenerate".format(aa_fourfold))
-
+print("These four-fold or six-fold AAs are:")
+print(fourfold_aa_names)
