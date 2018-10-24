@@ -11,7 +11,7 @@ for num in range(start,end+1,1):
         star = "*"
 #    if num == 0:
 #        star = ""
-        
+# extra line        
     print(num,star)
     
 # Your code goes next
